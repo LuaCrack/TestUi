@@ -3345,6 +3345,7 @@ end)
     end)
 -------------------------------------------------------------------------------------------------------
 local Add = Update:Window(Enum.KeyCode.RightControl);
+local Pr = Add:Tab("Tab Profile","rbxassetid://10734984606")
 local I = Add:Tab("Tab Status","rbxassetid://10734984606")
 local Mn = Add:Tab("Tab General","rbxassetid://10723407389")
 local St = Add:Tab("Tab Setting Other","rbxassetid://10734950309")
@@ -3359,6 +3360,12 @@ local S = Add:Tab("Tab Shop","rbxassetid://10734952479")
 local D = Add:Tab("Tab Devil Fruit","rbxassetid://10709761889")
 local Mc = Add:Tab("Tab Miscellaneous","rbxassetid://10709782582")
 --------------------------------------------------------------------------------------------------------
+I:Seperator("Thông Báo Quan Trọng")
+
+Pr:Label("Hiện Tại Admin Đang Tìm Ui Mới Để Update")
+Pr:Label("Nên Script Lỗi Sẽ Được Fix Khi Có Ui")
+--------------------------------------------------------------------------------------------------------
+
 I:Seperator("Status Game")
 Time = I:Label("Executer Time")
 
@@ -9889,7 +9896,7 @@ V4:Button("Teleport To Top Of GreatTree",function()
   topos(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
 end)
     
-V4:Button("Teleport To Lever Pull",function()
+V4:Button("Teleport To Timple Of Time",function()
   Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
 end)
     
@@ -10026,7 +10033,7 @@ V4:Button("Teleport To Clock",function()
   topos(CFrame.new(29551.9941, 15069.002, -85.5179291))
 end)
 
-  V4:Toggle("Trial All Race V4",false,function(v)
+  V4:Toggle("Auto Trial",false,function(v)
   _G.AutoQuestRace = v
   StopTween(_G.AutoQuestRace)
   end)
