@@ -1045,7 +1045,7 @@ end
 return dropfunc
 end
   
-    function main:AddSlider(text, min, max, start, callback)
+    function main:Slider(text, min, max, start, callback)
                 local sliderfunc = {}
                 local SliderFrame = Instance.new("Frame")
                 local SliderFrame_2 = Instance.new("Frame")
