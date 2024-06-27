@@ -1045,7 +1045,7 @@ end
 return dropfunc
 end
   
-    function main:Slider(text, min, max, start, callback)
+    function main:AddSlider(text, min, max, start, callback)
                 local sliderfunc = {}
                 local SliderFrame = Instance.new("Frame")
                 local SliderFrame_2 = Instance.new("Frame")
@@ -1074,7 +1074,7 @@ end
             
                 SliderFrame_2.Name = "SliderFrame_2"
                 SliderFrame_2.Parent = SliderFrame
-                SliderFrame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                SliderFrame_2.BackgroundColor3 = Color3.fromRGB(255, 30, 50)
                 SliderFrame_2.BackgroundTransparency = .8
                 SliderFrame_2.BorderSizePixel = 0
                 SliderFrame_2.Position = UDim2.new(0, 1, 0, 1)
@@ -1095,12 +1095,13 @@ end
                 
                 ImageLabel.Name = "ImageLabel"
                 ImageLabel.Parent = SliderFrame_2
-                ImageLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)        
+                ImageLabel.BackgroundColor3 = Color3.fromRGB(240, 240, 240)        
                 ImageLabel.BackgroundTransparency = 1.000
                 ImageLabel.BorderSizePixel = 0
                 ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
                 ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-            
+                ImageLabel.Image = "rbxassetid://0"
+                
                 Title.Parent = SliderFrame_2
 Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
 Title.BackgroundTransparency = 1.000
@@ -1125,14 +1126,14 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                 
                 SliderButton.Name = "SliderButton"
                 SliderButton.Parent = SliderInput
-                SliderButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)              SliderButton.BackgroundTransparency = 1.000
+                SliderButton.BackgroundColor3 = Color3.fromRGB(46, 56, 56)              SliderButton.BackgroundTransparency = 1.000
                 SliderButton.BorderSizePixel = 0
                 SliderButton.Position = UDim2.new(0, 0, 0, -7)
                 SliderButton.Size = UDim2.new(0, 300, 0, 25)
             
                 SliderCount.Name = "SliderCount"
                 SliderCount.Parent = SliderButton
-                SliderCount.BackgroundColor3 = Color3.fromRGB(0, 0, 0)           
+                SliderCount.BackgroundColor3 = Color3.fromRGB(50, 10, 20)           
                 SliderCount.BackgroundTransparency = 0
                 SliderCount.BorderSizePixel = 0
                 SliderCount.Position = UDim2.new(0,start,0,0)
@@ -1194,6 +1195,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                 UICorner_3.Parent = BoxFrame
                 UICorner_3.CornerRadius = UDim.new(0, 2)
                 
+                -- Slider Script --
                 local dragging
                 local SliderButtonStart
                 local SliderButtonInput
@@ -1204,8 +1206,8 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                     SliderCount:TweenPosition(slidein, Enum.EasingDirection.InOut, Enum.EasingStyle.Linear, 0.08, true)
                     Title_2:TweenPosition(slidein, Enum.EasingDirection.InOut, Enum.EasingStyle.Linear, 0.12, true)
                     local Value = math.floor(((slidein.X.Scale * max) / max) * (max - min) + min)
-                    SliderBox.Text = tostring(V)
-                    Title_2.Text = tostring(V)
+                    SliderBox.Text = tostring(Value)
+                    Title_2.Text = tostring(Value)
                     pcall(callback, Value, slidein)
                 end
             
@@ -1254,7 +1256,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                                 SliderCount:TweenPosition(UDim2.new(((tonumber(SliderBox.Text) or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                                 Title_2:TweenPosition(UDim2.new(((tonumber(SliderBox.Text) or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                                 pcall(function()
-                                    callback(V)
+                                    callback(Value)
                                 end)
                             end
                             if tonumber(SliderBox.Text) > max then
@@ -1264,7 +1266,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                                 SliderCount:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                                 Title_2:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                                 pcall(function()
-                                    callback(V)
+                                    callback(Value)
                                 end)
                             end
                             if tonumber(SliderBox.Text) >= min then
@@ -1273,7 +1275,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                                 SliderCount:TweenPosition(UDim2.new(((tonumber(SliderBox.Text) or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                                 Title_2:TweenPosition(UDim2.new(((tonumber(SliderBox.Text) or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                                 pcall(function()
-                                    callback(V)
+                                    callback(Value)
                                 end)
                             end
                             if tonumber(SliderBox.Text) < min then
@@ -1282,12 +1284,12 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                                 SliderCount.Position = UDim2.new(((min or min) - min) / (max - min), 0, 0, 0)
                                 Title_2.Position = UDim2.new(((min or min) - min) / (max - min), 0, 0, 0)
                                 pcall(function()
-                                    callback(V)
+                                    callback(Value)
                                 end)
                             end
                         else
                             SliderBox.Text = "" or Value
-                            Title_2.Text = V
+                            Title_2.Text = Value
                         end
                     end
                 end
@@ -1305,7 +1307,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                             SliderCount:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                             Title_2:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                             pcall(function()
-                                callback(V)
+                                callback(Value)
                             end)
                         end
                         if tonumber(SliderBox.Text) > tonumber(max) then
@@ -1315,7 +1317,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                             SliderCount:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                             Title_2:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                             pcall(function()
-                                callback(V)
+                                callback(Value)
                             end)
                         else
                             Value = tonumber(SliderBox.Text)
@@ -1327,7 +1329,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                             SliderCount:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                             Title_2:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                             pcall(function()
-                                callback(V)
+                                callback(Value)
                             end)
                         else
                             Value = tonumber(SliderBox.Text)
@@ -1340,7 +1342,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                         SliderCount:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                         Title_2:TweenPosition(UDim2.new(((max or min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                         pcall(function()
-                            callback(V)
+                            callback(Value)
                         end)
                     else
                         Value = tonumber(SliderBox.Text)
@@ -1352,7 +1354,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                         SliderCount.Position = UDim2.new(((min) - min) / (max - min), 0, 0, 0)
                         Title_2.Position = UDim2.new(((min) - min) / (max - min), 0, 0, 0)
                         pcall(function()
-                            callback(V)
+                            callback(Value)
                         end)
                     else
                         Value = tonumber(SliderBox.Text)
@@ -1364,7 +1366,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                         SliderCount:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.08, true)
                         Title_2:TweenPosition(UDim2.new(((min) - min) / (max - min), 0, 0, 0), "InOut", "Linear", 0.12, true)
                         pcall(function()
-                            callback(V)
+                            callback(Value)
                         end)
                     end
                 end)
