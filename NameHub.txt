@@ -1068,11 +1068,6 @@ SP = "Default"
 end
 end
 
-
-
-
----------------------Esp
-
 function UpdateIslandESP() 
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
         pcall(function()
