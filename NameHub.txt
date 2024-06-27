@@ -2561,7 +2561,15 @@ end)
     })
     DropdownSelectSpeed:SetValue('325')
     DropdownSelectSpeed:OnChanged(function(Value)
-        TweenSpeed = Value
+    TweenSpeed = Value
+	if TweenSpeed == "Slow" then
+		TweenSpeed = 300
+	elseif TweenSpeed == "Normal" then
+		TweenSpeed = 325
+	elseif TweenSpeed == "Fast" then
+		TweenSpeed = 350
+	end
+end)
 
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
         Title = "Auto Farm Level",
