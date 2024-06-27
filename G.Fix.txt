@@ -3945,17 +3945,6 @@ I:Seperator("Status Sever")
 
 I:Label("Exploit Using: ".. identifyexecutor())
 
-I:Seperator("Status Elite")
-local EliteProgress = I:Label("N/A")
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-                EliteProgress:Set("Elite Progress: "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))
-            end
-        end)
-    end)
-
 I:Seperator("Status Kitsune")
 local Xeter = I:Label("N/A")
 task.spawn(function()
@@ -4151,7 +4140,7 @@ I:Seperator("Status Player")
 --------------------------------------------------------------------------------------------------------
 Mn:Seperator("Weapon")
 
-local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
+local AttackList = {"0", "0.1", "0.15", "0.17", "0.19"}
 _G.FastAttackDelay = "0.17"
 Mn:Dropdown("Fast Attack Delay", AttackList,function(V)
     _G.FastAttackDelay = V
@@ -4165,21 +4154,11 @@ spawn(function()
                 elseif _G.FastAttackDelay == "0.1" then
                     _G.FastAttackDelay = 0.1
                 elseif _G.FastAttackDelay == "0.15" then
-                    _G.FastAttackDelay = 0.10
-                elseif _G.FastAttackDelay == "0.155" then
-                    _G.FastAttackDelay = 0.13
-                elseif _G.FastAttackDelay == "0.16" then
-                    _G.FastAttackDelay = 0.16
-                elseif _G.FastAttackDelay == "0.165" then
-                    _G.FastAttackDelay = 0.165
+                    _G.FastAttackDelay = 0.15
                 elseif _G.FastAttackDelay == "0.17" then
                     _G.FastAttackDelay = 0.17
-                elseif _G.FastAttackDelay == "0.175" then
-                    _G.FastAttackDelay = 0.175
-                elseif _G.FastAttackDelay == "0.18" then
-                    _G.FastAttackDelay = 0.18
-                elseif _G.FastAttackDelay == "0.185" then
-                    _G.FastAttackDelay = 0.185
+                elseif _G.FastAttackDelay == "0.19" then
+                    _G.FastAttackDelay = 0.19
                 end
             end)
         end
@@ -5935,16 +5914,10 @@ end)
     St:Label("Distance Z Behind Vector")
 
     PosY = 25
-    St:Slider("Pos Y Distance Farm",1,50,25,function(V)
-    PosY = V
-    end)
 
     St:Seperator("Misc Setting Mastery")
     
     _G.Kill_At = 25
-    St:Slider("Kill At %",1,100,25,function(V)
-        _G.Kill_At = V
-    end)
     
     St:Toggle("Skill Z",true,function(V)
         _G.SkillZ = V
@@ -13004,10 +12977,7 @@ P:Toggle("Devil Fruit",false,function(V)
 demonfruit = V
 end)
 
-PointStats = 1
-P:Slider("Point",1,100,PointStats,nil,function(V)
-PointStats = V
-end)
+PointStats = 100
 
 spawn(function()
 		while wait() do
