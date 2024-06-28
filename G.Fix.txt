@@ -3365,7 +3365,7 @@ Pr:Seperator("Important notification! ( English )")
 Pr:Label("Admin is currently looking for a new UI to update")
 Pr:Label("So Script Errors Will Be Fixed When There Is Ui")
 
-Pr:Seperator("Thông Báo Quan Trọng! ( VietNam")
+Pr:Seperator("Thông Báo Quan Trọng! ( VietNam )")
 
 Pr:Label("Hiện Tại Admin Đang Tìm Ui Mới Để Update")
 Pr:Label("Nên Script Lỗi Sẽ Được Fix Khi Có Ui")
@@ -9277,7 +9277,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
         end)
     end)
     
-    M:Toggle("Auto Farm Ectoplasm",_G.AutoEctoplasm,function(V)
+    M:Toggle("Auto Farm Ectoplasm",function(V)
         _G.AutoEctoplasm = V
         StopTween(_G.AutoEctoplasm)
     end)
