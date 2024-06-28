@@ -7481,7 +7481,7 @@ end
     
     M:Seperator("Soul Guitar")
     
-    M:Toggle("Auto Soul Guitar",_G.AutoNevaSoulGuitar,function(V)
+    M:Toggle("Auto Soul Guitar ( Test )",_G.AutoNevaSoulGuitar,function(V)
   _G.AutoNevaSoulGuitar = V    
  StopTween(_G.AutoNevaSoulGuitar)
  end)
@@ -7612,7 +7612,7 @@ M:Toggle("Auto Soul Guitar + Hop",false,function(V)
     
  M:Seperator("Dual Curse Katana")
 
-M:Toggle("Auto Dual Curse Katana",_G.AutoCdk,function(V)
+M:Toggle("Auto Dual Curse Katana ( Test )",_G.AutoCdk,function(V)
  Auto_Cursed_Dual_Katana = V
 StopTween(Auto_Cursed_Dual_Katana)
 end)
