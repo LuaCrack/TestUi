@@ -3360,12 +3360,16 @@ local S = Add:Tab("Tab Shop","rbxassetid://10734952479")
 local D = Add:Tab("Tab Devil Fruit","rbxassetid://10709761889")
 local Mc = Add:Tab("Tab Miscellaneous","rbxassetid://10709782582")
 --------------------------------------------------------------------------------------------------------
-I:Seperator("Thông Báo Quan Trọng")
+Pr:Seperator("Important notification! ( English )")
+
+Pr:Label("Admin is currently looking for a new UI to update")
+Pr:Label("So Script Errors Will Be Fixed When There Is Ui")
+
+Pr:Seperator("Thông Báo Quan Trọng! ( VietNam")
 
 Pr:Label("Hiện Tại Admin Đang Tìm Ui Mới Để Update")
 Pr:Label("Nên Script Lỗi Sẽ Được Fix Khi Có Ui")
 --------------------------------------------------------------------------------------------------------
-
 I:Seperator("Status Game")
 Time = I:Label("Executer Time")
 
